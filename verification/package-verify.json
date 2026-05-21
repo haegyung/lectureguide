@@ -1,0 +1,322 @@
+{
+  "path": "/Volumes/Extend/lecture-works/프로토타이핑/lectureguide/urban-prototyping-coach/SKILL.md",
+  "name": "urban-prototyping-coach",
+  "status": "ready",
+  "points": 120,
+  "max_points": 120,
+  "dimensions": [
+    {
+      "id": "identity",
+      "label": "Identity and purpose",
+      "points": 15,
+      "max_points": 15,
+      "status": "pass",
+      "criteria": [
+        {
+          "id": "identity.name",
+          "label": "Has a stable name or H1 title",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "name='urban-prototyping-coach'",
+          "recommendation": null
+        },
+        {
+          "id": "identity.description",
+          "label": "States the skill purpose",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "Guide students using the integrated How to build with LLM handout to turn broad sustainable urban-tech ideas into sma...",
+          "recommendation": null
+        },
+        {
+          "id": "identity.metadata",
+          "label": "Provides machine-readable metadata",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "frontmatter_keys=['compatibility', 'description', 'license', 'metadata', 'name']",
+          "recommendation": null
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "label": "Scope and routing boundaries",
+      "points": 15,
+      "max_points": 15,
+      "status": "pass",
+      "criteria": [
+        {
+          "id": "scope.activation",
+          "label": "Defines activation or use conditions",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "matched=['when to use']",
+          "recommendation": null
+        },
+        {
+          "id": "scope.boundary",
+          "label": "Defines boundaries or exclusions",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "matched=['only', 'boundary', 'blocked']",
+          "recommendation": null
+        },
+        {
+          "id": "scope.owner",
+          "label": "Identifies owner, route, or canonical source",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "matched=['owner', 'route', 'source of truth', 'sot']",
+          "recommendation": null
+        }
+      ]
+    },
+    {
+      "id": "progressive_disclosure",
+      "label": "Progressive disclosure and package structure",
+      "points": 15,
+      "max_points": 15,
+      "status": "pass",
+      "criteria": [
+        {
+          "id": "progressive.references",
+          "label": "Links to supporting references",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "references=15",
+          "recommendation": null
+        },
+        {
+          "id": "progressive.local_refs",
+          "label": "Keeps referenced local assets resolvable",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "local_refs=15, existing=15",
+          "recommendation": null
+        },
+        {
+          "id": "progressive.disclosure",
+          "label": "Uses staged loading or reusable package surfaces",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "matched=['progressive disclosure', 'scripts/']",
+          "recommendation": null
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "label": "Evidence, rubric, and measurable outputs",
+      "points": 20,
+      "max_points": 20,
+      "status": "pass",
+      "criteria": [
+        {
+          "id": "evidence.rubric",
+          "label": "Contains a rubric or pass/fail criteria",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "matched=['rubric', 'must', 'should', 'score']",
+          "recommendation": null
+        },
+        {
+          "id": "evidence.sources",
+          "label": "Requires evidence, sources, or citations",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "matched=['evidence', 'source', 'provenance']",
+          "recommendation": null
+        },
+        {
+          "id": "evidence.references",
+          "label": "Has local or external evidence anchors",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "local_refs=True, external_refs=False",
+          "recommendation": null
+        },
+        {
+          "id": "evidence.outputs",
+          "label": "Defines measurable outputs or artifacts",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "matched=['json', 'report', 'artifact', 'output', 'path']",
+          "recommendation": null
+        }
+      ]
+    },
+    {
+      "id": "execution",
+      "label": "Execution model and agent workflow",
+      "points": 20,
+      "max_points": 20,
+      "status": "pass",
+      "criteria": [
+        {
+          "id": "execution.loop",
+          "label": "Defines a loop or staged process",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "matched=['score', 'observe', 'act']",
+          "recommendation": null
+        },
+        {
+          "id": "execution.tools",
+          "label": "Explains tools, scripts, or calls",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "matched=['script', 'command', 'selection', 'runtime']",
+          "recommendation": null
+        },
+        {
+          "id": "execution.state",
+          "label": "Accounts for context, memory, or state",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "matched=['context', 'memory', 'state', 'history', 'session']",
+          "recommendation": null
+        },
+        {
+          "id": "execution.failure",
+          "label": "Defines failure, fallback, or safety handling",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "matched=['blocked', 'fallback', 'credential', 'permission']",
+          "recommendation": null
+        }
+      ]
+    },
+    {
+      "id": "validation",
+      "label": "Validation, portability, and delivery readiness",
+      "points": 15,
+      "max_points": 15,
+      "status": "pass",
+      "criteria": [
+        {
+          "id": "validation.tests",
+          "label": "Names validation tests or checks",
+          "points": 4,
+          "max_points": 4,
+          "passed": true,
+          "evidence": "matched=['quick_validate', 'preflight', 'quality gate']",
+          "recommendation": null
+        },
+        {
+          "id": "validation.commands",
+          "label": "Includes runnable command evidence",
+          "points": 4,
+          "max_points": 4,
+          "passed": true,
+          "evidence": "command_like=True",
+          "recommendation": null
+        },
+        {
+          "id": "validation.portability",
+          "label": "Avoids relying only on absolute local paths",
+          "points": 3,
+          "max_points": 3,
+          "passed": true,
+          "evidence": "absolute_refs=3, relative_refs=12",
+          "recommendation": null
+        },
+        {
+          "id": "validation.delivery",
+          "label": "Mentions delivery, maintenance, or change tracking",
+          "points": 4,
+          "max_points": 4,
+          "passed": true,
+          "evidence": "matched=['history', 'release', 'package']",
+          "recommendation": null
+        }
+      ]
+    },
+    {
+      "id": "profile.generate_skill_contract",
+      "label": "generate-skill contract",
+      "points": 20,
+      "max_points": 20,
+      "status": "pass",
+      "criteria": [
+        {
+          "id": "profile.required_sections",
+          "label": "Contains canonical generate-skill sections",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "missing_sections=[]",
+          "recommendation": null
+        },
+        {
+          "id": "profile.must_lock_sections",
+          "label": "Locks section names in rubric or quality gate text",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "missing_locks=[]",
+          "recommendation": null
+        },
+        {
+          "id": "profile.runtime_status",
+          "label": "Declares one runtime compatibility closeout state",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "runtime_compatibility_status=shared-core only / no-delta",
+          "recommendation": null
+        },
+        {
+          "id": "profile.portable_metadata",
+          "label": "Includes portable metadata vocabulary",
+          "points": 5,
+          "max_points": 5,
+          "passed": true,
+          "evidence": "missing_metadata_terms=[]",
+          "recommendation": null
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "profile": "generate-skill",
+  "topology_class": "unknown",
+  "runtime_compatibility_status": "shared-core only / no-delta",
+  "validator_evidence": [
+    {
+      "name": "skills-ref validate",
+      "command": "skills-ref validate /Volumes/Extend/lecture-works/프로토타이핑/lectureguide/urban-prototyping-coach",
+      "status": "passed",
+      "summary": "Valid skill: /Volumes/Extend/lecture-works/프로토타이핑/lectureguide/urban-prototyping-coach"
+    },
+    {
+      "name": "quick_validate.py",
+      "command": "python3 /Volumes/Extend/.codex-relocated/skills/generate-skill/scripts/quick_validate.py /Volumes/Extend/lecture-works/프로토타이핑/lectureguide/urban-prototyping-coach",
+      "status": "passed",
+      "summary": "Skill is valid!"
+    },
+    {
+      "name": "audit_three_layer_separation.py",
+      "command": "python3 /Volumes/Extend/.codex-relocated/skills/generate-skill/scripts/audit_three_layer_separation.py /Volumes/Extend/lecture-works/프로토타이핑/lectureguide/urban-prototyping-coach",
+      "status": "passed",
+      "summary": "[audit] /Volumes/Extend/lecture-works/프로토타이핑/lectureguide/urban-prototyping-coach/SKILL.md"
+    }
+  ],
+  "score_percent": 100.0
+}
