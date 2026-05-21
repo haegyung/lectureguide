@@ -1,6 +1,6 @@
 # Manifest
 
-- build_date: 2026-05-21
+- build_date: 2026-05-22
 - package_type: plain Markdown distribution
 - publishable_sot_path: `dist/urban-prototyping-coach/`
 - source_documents:
@@ -50,15 +50,14 @@
 - 2026-05-21 hardening verification: `quick_validate.py .` passed
 - 2026-05-21 CAA generate-skill profile: ready, 120/120, runtime compatibility `shared-core only / no-delta`, no blocking findings
 - 2026-05-21 three-layer audit: fixed/flexible/decisional signals present, smells 0
-- 2026-05-21 multi-skill system verification: `skills-ref validate .` passed after system-surface additions
-- 2026-05-21 multi-skill system verification: `quick_validate.py .` passed after system-surface additions
+- 2026-05-21 멀티 스킬 구조 검증: `skills-ref validate .` 통과
+- 2026-05-21 멀티 스킬 구조 검증: `quick_validate.py .` 통과
 - 2026-05-21 multi-skill system verification: `skillanalysis analyze ./SKILL.md --profile generate-skill --run-validators` returned ready, 120/120
 - 2026-05-21 multi-skill system verification: `audit_three_layer_separation.py .` reported fixed/flexible/decisional signals present, smells 0
-- 2026-05-21 Korean surface verification: `phrase_lint.py SKILL.md README.md multi-skill-system.md domain-alignment-map.md` returned no findings
-- 2026-05-21 Korean surface verification: `skills-ref validate urban-prototyping-coach` passed
-- 2026-05-21 Korean surface verification: `quick_validate.py urban-prototyping-coach` passed
-- 2026-05-21 Korean surface verification: `audit_three_layer_separation.py urban-prototyping-coach` reported smells 0
-- 2026-05-21 Korean surface CAA profile: ready, 120/120, no blocking findings
+- 2026-05-22 표현 점검: `phrase_lint.py SKILL.md README.md multi-skill-system.md domain-alignment-map.md MANIFEST.md`에서 추가 경고 없이 마감
+- 2026-05-22 hardening verification: `skills-ref validate .` passed
+- 2026-05-22 hardening verification: `quick_validate.py .` passed
+- 2026-05-22 hardening verification: `audit_three_layer_separation.py .` reported smells 0
 
 ## Validation Commands
 
@@ -72,8 +71,8 @@ PYTHONPATH=/Volumes/Extend/labs/SkillAnalysis/src python3 -m skillanalysis analy
 
 ## Change History
 
-- 2026-05-21: generate-skill / CAA 정합성 보강으로 배포 메타데이터, 기준 문서 고정, 호환성 상태, 예전 문서 처리 방식, 충돌 우선순위, 3층 분류, 자체 점검, 검증 명령을 추가했습니다. 이 패키지 안에서 같은 보강 패턴은 N=1입니다.
-- 2026-05-21: generate-skill + vector-language-cognition + cogarch 정렬로 지속가능한 Urban테크 초점, 행위자 우선 규칙, 증거와 주장 범위 규칙을 추가하고 `domain-alignment-map.md`를 만들었습니다.
-- 2026-05-21: 여러 기준을 하나의 코칭 흐름으로 쓰기 위해 `multi-skill-system.md`를 추가했습니다.
-- 2026-05-21: `ChatGPT / Claude / Claude Code` 호환 문구를 추가하고, 호환성 상태는 `shared-core only / no-delta`로 유지했습니다.
-- 2026-05-21: 한국어 표면 정리로 사람이 읽는 설명을 내부 태그보다 앞에 두었습니다. 검증과 분석에 필요한 태그만 괄호나 기록 항목으로 남겼습니다.
+- 2026-05-21: generate-skill / CAA hardening pass added portable metadata, source-of-truth contract, runtime compatibility closeout, legacy distillation owner split, conflict resolution, Fixed/Flexible/Decisional layering, self-application gates, and runnable validation commands. Pattern repetition count: N=1 for this package-local hardening pattern.
+- 2026-05-21: generate-skill + vector-language-cognition + cogarch alignment pass specialized the companion skill for sustainable urban tech, added actor-first/evidence-boundary rules, and added `domain-alignment-map.md` for source and ownership traceability.
+- 2026-05-21: 멀티 스킬 구조 정리로 `multi-skill-system.md`를 추가하고, 하나의 코칭 흐름 안에서 역할 분담이 보이게 정리했습니다.
+- 2026-05-21: `ChatGPT / Claude / Claude Code` 호환 문구를 추가하면서도 `shared-core only / no-delta` 상태와 로컬 전용 어댑터 없음 원칙을 유지했습니다.
+- 2026-05-22: 학생이 읽는 표면에서 내부 운영 용어 노출을 줄이고, 같은 구조를 더 자연스러운 한국어 설명으로 정리했습니다.
