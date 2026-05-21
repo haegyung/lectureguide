@@ -16,13 +16,13 @@
 
 ## Files
 
-- `README.md`: package entrypoint
-- `pretotyping-guide.md`: plain Markdown student handout for pretotyping with prompt examples included
-- `student-guide.md`: plain Markdown student handout for prototyping and design transition with prompt examples included
-- `SKILL.md`: companion AI skill file aligned to `student-guide.md` and specialized for sustainable urban tech
-- `domain-alignment-map.md`: compact alignment note for source, domain, and ownership boundaries
-- `multi-skill-system.md`: owner/helper routing surface for the package-level multi-skill system
-- `MANIFEST.md`: this manifest
+- `README.md`: 패키지 입구 문서
+- `pretotyping-guide.md`: 프롬프트 예시를 포함한 초기 프리토타이핑 학생용 문서
+- `student-guide.md`: 프로토타이핑과 설계 연결을 다루는 현재 학생용 기준 문서
+- `SKILL.md`: `student-guide.md`에 맞춘 AI 코칭 스킬 파일
+- `domain-alignment-map.md`: 원문, 도메인 규칙, 문서별 역할을 짧게 정리한 메모
+- `multi-skill-system.md`: 여러 보조 기준을 하나의 코칭 흐름으로 쓰는 방식을 설명한 문서
+- `MANIFEST.md`: 이 배포 기록 문서
 
 ## Source Mapping
 
@@ -31,14 +31,14 @@
 
 ## Distribution Notes
 
-- Pretotyping guide is preserved as a reference document, but the integrated student-facing main guide is `student-guide.md`.
-- The prompt examples are intentionally kept in the student-facing Markdown documents.
-- `SKILL.md` uses `student-guide.md` as the primary working frame, adds a sustainable urban-tech domain adapter, and treats `pretotyping-guide.md` as reference only.
-- `domain-alignment-map.md` records how `generate-skill`, `vector-language-cognition`, and `cogarch` shaped the current package.
-- `multi-skill-system.md` defines how `urban-prototyping-coach`, `cogarch`, `vector-language-cognition`, and `generate-skill` divide owner/helper responsibility.
-- runtime use follows one shared portable core: ChatGPT, Claude, and Claude Code read the same `SKILL.md`; generic chat surfaces use the documented manual fallback.
-- This folder can be distributed as-is.
-- Runtime compatibility closeout is recorded in `SKILL.md` as shared portable Markdown with no runtime-local delta.
+- `pretotyping-guide.md`는 참고 문서로 보존하고, 현재 학생용 기준 문서는 `student-guide.md`로 둡니다.
+- 프롬프트 예시는 학생용 Markdown 문서 안에만 둡니다.
+- `SKILL.md`는 `student-guide.md`를 기준으로 삼고, 지속가능한 Urban테크 초점을 덧붙입니다.
+- `domain-alignment-map.md`는 `generate-skill`, `vector-language-cognition`, `cogarch`의 기준이 이 패키지에 어떻게 들어왔는지 기록합니다.
+- `multi-skill-system.md`는 여러 기준을 쓰더라도 학생에게는 하나의 코칭 흐름으로 보이게 하는 방식을 설명합니다.
+- ChatGPT, Claude, Claude Code는 같은 `SKILL.md`를 읽어 사용합니다. 일반 채팅 도구는 필요한 섹션을 붙여 넣어 사용할 수 있습니다.
+- 이 폴더는 그대로 배포할 수 있습니다.
+- 호환성 상태는 `SKILL.md`에 `shared-core only / no-delta`로 기록했습니다.
 
 ## Verification
 
@@ -54,6 +54,11 @@
 - 2026-05-21 multi-skill system verification: `quick_validate.py .` passed after system-surface additions
 - 2026-05-21 multi-skill system verification: `skillanalysis analyze ./SKILL.md --profile generate-skill --run-validators` returned ready, 120/120
 - 2026-05-21 multi-skill system verification: `audit_three_layer_separation.py .` reported fixed/flexible/decisional signals present, smells 0
+- 2026-05-21 Korean surface verification: `phrase_lint.py SKILL.md README.md multi-skill-system.md domain-alignment-map.md` returned no findings
+- 2026-05-21 Korean surface verification: `skills-ref validate urban-prototyping-coach` passed
+- 2026-05-21 Korean surface verification: `quick_validate.py urban-prototyping-coach` passed
+- 2026-05-21 Korean surface verification: `audit_three_layer_separation.py urban-prototyping-coach` reported smells 0
+- 2026-05-21 Korean surface CAA profile: ready, 120/120, no blocking findings
 
 ## Validation Commands
 
@@ -67,7 +72,8 @@ PYTHONPATH=/Volumes/Extend/labs/SkillAnalysis/src python3 -m skillanalysis analy
 
 ## Change History
 
-- 2026-05-21: generate-skill / CAA hardening pass added portable metadata, source-of-truth contract, runtime compatibility closeout, legacy distillation owner split, conflict resolution, Fixed/Flexible/Decisional layering, self-application gates, and runnable validation commands. Pattern repetition count: N=1 for this package-local hardening pattern.
-- 2026-05-21: generate-skill + vector-language-cognition + cogarch alignment pass specialized the companion skill for sustainable urban tech, added actor-first/evidence-boundary rules, and added `domain-alignment-map.md` for source and ownership traceability.
-- 2026-05-21: multi-skill system pass added `multi-skill-system.md`, fixed visible owner/helper routing, and promoted the package from a single companion skill to a package-level orchestration surface.
-- 2026-05-21: runtime surface pass added explicit `ChatGPT / Claude / Claude Code` compatibility wording while keeping `shared-core only / no-delta` closeout and no runtime-local adapter files.
+- 2026-05-21: generate-skill / CAA 정합성 보강으로 배포 메타데이터, 기준 문서 고정, 호환성 상태, 예전 문서 처리 방식, 충돌 우선순위, 3층 분류, 자체 점검, 검증 명령을 추가했습니다. 이 패키지 안에서 같은 보강 패턴은 N=1입니다.
+- 2026-05-21: generate-skill + vector-language-cognition + cogarch 정렬로 지속가능한 Urban테크 초점, 행위자 우선 규칙, 증거와 주장 범위 규칙을 추가하고 `domain-alignment-map.md`를 만들었습니다.
+- 2026-05-21: 여러 기준을 하나의 코칭 흐름으로 쓰기 위해 `multi-skill-system.md`를 추가했습니다.
+- 2026-05-21: `ChatGPT / Claude / Claude Code` 호환 문구를 추가하고, 호환성 상태는 `shared-core only / no-delta`로 유지했습니다.
+- 2026-05-21: 한국어 표면 정리로 사람이 읽는 설명을 내부 태그보다 앞에 두었습니다. 검증과 분석에 필요한 태그만 괄호나 기록 항목으로 남겼습니다.

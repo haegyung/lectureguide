@@ -29,30 +29,30 @@
 ### Scope and routing boundaries
 - `PASS` Defines activation or use conditions (5/5) - matched=['when to use']
 - `PASS` Defines boundaries or exclusions (5/5) - matched=['only', 'boundary', 'blocked']
-- `PASS` Identifies owner, route, or canonical source (5/5) - matched=['owner', 'route', 'source of truth', 'sot']
+- `PASS` Identifies owner, route, or canonical source (5/5) - matched=['owner', 'route', 'source of truth']
 
 ### Progressive disclosure and package structure
 - `PASS` Links to supporting references (5/5) - references=15
 - `PASS` Keeps referenced local assets resolvable (5/5) - local_refs=15, existing=15
-- `PASS` Uses staged loading or reusable package surfaces (5/5) - matched=['progressive disclosure', 'scripts/']
+- `PASS` Uses staged loading or reusable package surfaces (5/5) - matched=['scripts/']
 
 ### Evidence, rubric, and measurable outputs
-- `PASS` Contains a rubric or pass/fail criteria (5/5) - matched=['rubric', 'must', 'should', 'score']
+- `PASS` Contains a rubric or pass/fail criteria (5/5) - matched=['rubric', 'must', 'should']
 - `PASS` Requires evidence, sources, or citations (5/5) - matched=['evidence', 'source', 'provenance']
 - `PASS` Has local or external evidence anchors (5/5) - local_refs=True, external_refs=False
-- `PASS` Defines measurable outputs or artifacts (5/5) - matched=['json', 'report', 'artifact', 'output', 'path']
+- `PASS` Defines measurable outputs or artifacts (5/5) - matched=['json', 'report', 'output', 'path']
 
 ### Execution model and agent workflow
-- `PASS` Defines a loop or staged process (5/5) - matched=['score', 'observe', 'act']
-- `PASS` Explains tools, scripts, or calls (5/5) - matched=['script', 'command', 'selection', 'runtime']
-- `PASS` Accounts for context, memory, or state (5/5) - matched=['context', 'memory', 'state', 'history', 'session']
-- `PASS` Defines failure, fallback, or safety handling (5/5) - matched=['blocked', 'fallback', 'credential', 'permission']
+- `PASS` Defines a loop or staged process (5/5) - matched=['observe', 'act']
+- `PASS` Explains tools, scripts, or calls (5/5) - matched=['tool', 'script', 'command', 'runtime']
+- `PASS` Accounts for context, memory, or state (5/5) - matched=['state', 'history']
+- `PASS` Defines failure, fallback, or safety handling (5/5) - matched=['blocked']
 
 ### Validation, portability, and delivery readiness
 - `PASS` Names validation tests or checks (4/4) - matched=['quick_validate', 'preflight', 'quality gate']
 - `PASS` Includes runnable command evidence (4/4) - command_like=True
 - `PASS` Avoids relying only on absolute local paths (3/3) - absolute_refs=3, relative_refs=12
-- `PASS` Mentions delivery, maintenance, or change tracking (4/4) - matched=['history', 'release', 'package']
+- `PASS` Mentions delivery, maintenance, or change tracking (4/4) - matched=['history', 'package']
 
 ### generate-skill contract
 - `PASS` Contains canonical generate-skill sections (5/5) - missing_sections=[]

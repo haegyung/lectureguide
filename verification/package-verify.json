@@ -72,7 +72,7 @@
           "points": 5,
           "max_points": 5,
           "passed": true,
-          "evidence": "matched=['owner', 'route', 'source of truth', 'sot']",
+          "evidence": "matched=['owner', 'route', 'source of truth']",
           "recommendation": null
         }
       ]
@@ -108,7 +108,7 @@
           "points": 5,
           "max_points": 5,
           "passed": true,
-          "evidence": "matched=['progressive disclosure', 'scripts/']",
+          "evidence": "matched=['scripts/']",
           "recommendation": null
         }
       ]
@@ -126,7 +126,7 @@
           "points": 5,
           "max_points": 5,
           "passed": true,
-          "evidence": "matched=['rubric', 'must', 'should', 'score']",
+          "evidence": "matched=['rubric', 'must', 'should']",
           "recommendation": null
         },
         {
@@ -153,7 +153,7 @@
           "points": 5,
           "max_points": 5,
           "passed": true,
-          "evidence": "matched=['json', 'report', 'artifact', 'output', 'path']",
+          "evidence": "matched=['json', 'report', 'output', 'path']",
           "recommendation": null
         }
       ]
@@ -171,7 +171,7 @@
           "points": 5,
           "max_points": 5,
           "passed": true,
-          "evidence": "matched=['score', 'observe', 'act']",
+          "evidence": "matched=['observe', 'act']",
           "recommendation": null
         },
         {
@@ -180,7 +180,7 @@
           "points": 5,
           "max_points": 5,
           "passed": true,
-          "evidence": "matched=['script', 'command', 'selection', 'runtime']",
+          "evidence": "matched=['tool', 'script', 'command', 'runtime']",
           "recommendation": null
         },
         {
@@ -189,7 +189,7 @@
           "points": 5,
           "max_points": 5,
           "passed": true,
-          "evidence": "matched=['context', 'memory', 'state', 'history', 'session']",
+          "evidence": "matched=['state', 'history']",
           "recommendation": null
         },
         {
@@ -198,7 +198,7 @@
           "points": 5,
           "max_points": 5,
           "passed": true,
-          "evidence": "matched=['blocked', 'fallback', 'credential', 'permission']",
+          "evidence": "matched=['blocked']",
           "recommendation": null
         }
       ]
@@ -243,7 +243,7 @@
           "points": 4,
           "max_points": 4,
           "passed": true,
-          "evidence": "matched=['history', 'release', 'package']",
+          "evidence": "matched=['history', 'package']",
           "recommendation": null
         }
       ]
