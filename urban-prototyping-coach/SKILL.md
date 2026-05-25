@@ -35,7 +35,15 @@ metadata:
 
 역할 분리는 아래처럼 고정합니다.
 
-- `urban-prototyping-coach`: 학생 아이디어를 질문, 실험, 증거, 다음 결정으로 정리합니다.
+- `urban-prototyping-coach`: 학생 아이디어를 질문, 실험, 증거, 다음 결정으로 정리하는 owner surface입니다.
+- `skills/urban-scope`: 아이디어를 한 명의 행위자, 한 상황, 한 장소, 한 학습 질문으로 줄입니다.
+- `skills/urban-service-loop`: 입력, 처리, 결과, 다음 행동의 서비스 루프를 정리합니다.
+- `skills/urban-prototype`: 가장 작은 실험물을 정하고 빌드 프롬프트를 만듭니다.
+- `skills/urban-demo-review`: 시연 흐름과 관찰 포인트를 점검합니다.
+- `skills/urban-pitch`: 발표용 설명과 현재 주장 경계를 정리합니다.
+- `skills/urban-spec`, `skills/urban-plan`: 설계로 넘어갈 때 구현 범위와 순서를 정리합니다.
+- `skills/urban-context-audit`: AI가 읽을 프로젝트 맥락이 충분한지 점검합니다.
+- `skills/urban-evidence-boundary`: 관찰, 해석, 주장 범위를 다시 잠급니다.
 - `cogarch`: 문제가 너무 크거나 행위자가 섞였을 때, 누구의 어떤 상황인지 줄여 봅니다.
 - `vector-language-cognition`: 관찰한 것과 해석한 것을 구분합니다.
 - `generate-skill`: 스킬 구조와 검증 방식을 관리합니다.
@@ -221,6 +229,9 @@ Urban 영역:
 
 - [student-guide.md](student-guide.md)가 이 패키지의 주 문서이자 현재 작업 기준입니다.
 - [pretotyping-guide.md](pretotyping-guide.md)는 역사적 참고 문서입니다.
+- [commands/urban/help.md](commands/urban/help.md)부터 [commands/urban/context-audit.md](commands/urban/context-audit.md)까지는 단계별 portable command prompt입니다.
+- [skills/](skills/) 아래는 실제 분리된 child skill 세트입니다.
+- [references/routing-contract.md](references/routing-contract.md)는 command 이름과 child skill 연결의 기준 문서입니다.
 - [domain-alignment-map.md](domain-alignment-map.md)는 이 스킬이 어떤 기준 문서와 어떤 도메인 규칙을 받아들였는지 짧게 정리한 메모입니다.
 - [multi-skill-system.md](multi-skill-system.md)는 누가 중심이 되고 무엇을 함께 넘겨받는지, 단계별 흐름을 정리한 시스템 문서입니다.
 - [MANIFEST.md](MANIFEST.md)는 배포 파일, 원문 연결, 검증 기록을 남기는 문서입니다.
@@ -261,6 +272,7 @@ Urban 영역:
 ChatGPT, Claude, Claude Code는 같은 `SKILL.md`를 읽어 사용할 수 있습니다.
 스킬 파일을 직접 지원하지 않는 도구에서는 `Working Position`, `Evidence and Claim Boundary`, `Default Workflow`, `Output Format`, `Boundaries`만 붙여 넣으면 됩니다.
 이 우회 경로는 편의를 위한 것이지, 숨은 전역 상태나 세션 명령에 기대는 구조가 아닙니다.
+`commands/urban/`와 `skills/urban-*`도 plain Markdown surface이므로 같은 shared-core 범위 안에서 읽을 수 있습니다.
 
 ## Runtime Adaptation Default
 
@@ -331,6 +343,7 @@ Code와 validator가 강제하는 것:
 - linked local files는 실제 패키지 안에서 resolve되어야 합니다.
 - validation command가 실패하면 release-ready로 말하지 않습니다.
 - 민감 데이터 수집, 과장된 검증 claim, source order 변경은 차단합니다.
+- child skill이 `references/routing-contract.md`와 다른 command spelling이나 연결 관계를 단독으로 바꾸지 않습니다.
 
 LLM이 판단하는 것:
 
@@ -359,6 +372,7 @@ skills-ref validate .
 python3 /Volumes/Extend/.codex-relocated/skills/generate-skill/scripts/quick_validate.py .
 PYTHONPATH=/Volumes/Extend/labs/SkillAnalysis/src python3 -m skillanalysis analyze ./SKILL.md --profile generate-skill --run-validators
 python3 /Volumes/Extend/.codex-relocated/skills/generate-skill/scripts/audit_three_layer_separation.py ./SKILL.md
+find skills -mindepth 1 -maxdepth 1 -type d -exec sh -c 'skills-ref validate "$1" && python3 /Volumes/Extend/.codex-relocated/skills/generate-skill/scripts/quick_validate.py "$1"' sh {} \;
 ```
 
 CAA report를 남길 때는 Markdown 또는 JSON artifact path를 `MANIFEST.md` 또는 실행 로그에 적습니다.

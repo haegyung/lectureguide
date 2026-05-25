@@ -12,10 +12,10 @@
 
 | source | 이 패키지에서 가져온 것 | 적용 위치 |
 | --- | --- | --- |
-| `student-guide.md` | NDM 기반 프로토타이핑, 질문 중심 학습, 증거 우선, 설계 전 작은 실험 | `Purpose`, `Working Position`, `Default Workflow` |
+| `student-guide.md` | NDM 기반 프로토타이핑, 질문 중심 학습, 증거 우선, 설계 전 작은 실험 | `Purpose`, `Working Position`, `Default Workflow`, `commands/urban/` prompt wording |
 | `generate-skill` | 기준 문서 위치, 호환성, 고정/유동/판단 구분, 검증 계약 | `Working Source of Truth`, `Runtime Compatibility Gate`, `3층 분류`, `Preflight and Validation` |
 | `vector-language-cognition` | 관찰과 해석 분리, evidence state, claim boundary, proxy 과장 방지 | `Evidence and Claim Boundary`, `Code / LLM Boundary` |
-| `cogarch` | actor-first 정렬, ownership boundary, 구조 우선 정리 | `Urban-Tech Domain Focus`, `Conflict Resolution` |
+| `cogarch` | actor-first 정렬, ownership boundary, 구조 우선 정리 | `Urban-Tech Domain Focus`, `Conflict Resolution`, `skills/urban-scope` |
 
 ## Domain Adapter
 
@@ -39,5 +39,8 @@
 
 - `student-guide.md`: 수업 개념과 학생 설명의 기준
 - `SKILL.md`: 실행 규칙과 판단 형식
+- `references/routing-contract.md`: command 이름과 child skill 연결의 기준
+- `commands/urban/`: portable command prompt surface
+- `skills/urban-*`: 단계별 child skill surface
 - `MANIFEST.md`: 배포/검증 기록
 - `pretotyping-guide.md`: 역사적 참고 문서

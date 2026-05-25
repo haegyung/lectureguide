@@ -8,6 +8,10 @@
 - `student-guide.md`: 우리가 합의한 기준을 반영한 통합 학생용 문서입니다. 프로토타이핑을 상위 개념으로 두고, LLM 활용과 증거 수집, 설계 연결까지 한 흐름으로 설명합니다.
 - `pretotyping-guide.md`: 초기 원문을 참고용으로 보존한 문서입니다. 용어 비교나 수업 맥락 확인이 필요할 때 참고합니다.
 - `SKILL.md`: `student-guide.md`를 주 기준으로 삼고, 지속가능한 Urban테크 수업에 맞게 행위자와 증거를 보는 방식을 덧댄 동반 스킬 파일입니다.
+- `commands/urban/`: `/urban:*` 흐름을 그대로 복사해 쓸 수 있게 정리한 portable command prompt 묶음입니다.
+- `skills/`: `urban-scope`부터 `urban-context-audit`까지 실제 분리된 하위 스킬 세트입니다.
+- `references/routing-contract.md`: command 이름, 연결된 하위 스킬, 입력/출력 계약을 고정한 기준 문서입니다.
+- `references/command-skill-concept-map.md`: owner skill, child skill, command surface 연결을 한눈에 보는 정렬 문서입니다.
 - `domain-alignment-map.md`: 이 스킬이 어떤 기준 문서와 어떤 도메인 규칙을 받아들였는지 짧게 정리한 메모입니다.
 - `multi-skill-system.md`: 이 패키지 안에서 여러 보조 기준이 어떻게 함께 쓰이는지 정리한 운영 문서입니다.
 - `MANIFEST.md`: 배포 파일 목록과 검증 기록입니다.
@@ -16,23 +20,27 @@
 
 1. 먼저 `student-guide.md`를 읽고 아이디어를 질문, 프로토타입, 증거, 설계의 흐름으로 정리합니다.
 2. `SKILL.md`를 읽고 `행위자 + 상황 + 장소 + 마찰`과 `evidence_state + claim_boundary` 기준을 현재 아이디어에 붙입니다.
-3. `multi-skill-system.md`를 읽고 각 보조 기준이 언제 들어오는지 확인합니다.
-4. 필요할 때 `domain-alignment-map.md`를 확인해 왜 이런 구조를 쓰는지 빠르게 복기합니다.
-5. 문서 안의 프롬프트 예시를 자기 아이디어에 맞게 바꿔 씁니다.
-6. 필요할 때 `pretotyping-guide.md`를 참고해 원문 표현이나 초기 수업 맥락을 비교합니다.
-7. 스킬 파일을 지원하지 않는 도구에서는 `SKILL.md`의 기준과 출력 형식을 작업 기준으로 붙여 넣어도 됩니다.
+3. `commands/urban/help.md`와 `references/routing-contract.md`를 보고 어떤 command와 하위 스킬을 쓸지 고릅니다.
+4. `references/command-skill-concept-map.md`를 보고 owner, child skill, helper의 연결을 먼저 파악합니다.
+5. `skills/` 아래에서 현재 단계와 맞는 하위 스킬을 선택해 더 좁은 작업 단위로 진행합니다.
+6. `multi-skill-system.md`를 읽고 owner, child skill, external helper의 역할 구분을 확인합니다.
+7. 필요할 때 `domain-alignment-map.md`를 확인해 왜 이런 구조를 쓰는지 빠르게 복기합니다.
+8. 문서 안의 프롬프트 예시를 자기 아이디어에 맞게 바꿔 씁니다.
+9. 필요할 때 `pretotyping-guide.md`를 참고해 원문 표현이나 초기 수업 맥락을 비교합니다.
+10. 스킬 파일을 지원하지 않는 도구에서는 `SKILL.md`나 `commands/urban/*.md`의 본문을 그대로 붙여 넣어도 됩니다.
 
 ## 어떤 도구에서 쓰나
 
-- `ChatGPT`: `SKILL.md`와 `student-guide.md`를 함께 읽히고 현재 아이디어를 붙여 요청합니다.
-- `Claude`: `SKILL.md`를 기준으로 코칭 규칙을 따르게 하고, 필요할 때 `student-guide.md` 예시를 같이 읽힙니다.
-- `Claude Code`: skills-compatible 경로에 이 폴더를 두거나 현재 작업 폴더에서 `SKILL.md`를 직접 읽게 합니다.
-- 일반 LLM 채팅: 스킬 자동 활성화가 없으면 `SKILL.md`의 `Working Position`, `Evidence and Claim Boundary`, `Default Workflow`, `Output Format`만 복사해도 됩니다.
+- `ChatGPT`: `SKILL.md`, 필요한 `skills/urban-*`, 필요한 `commands/urban/*.md`를 함께 읽히고 현재 아이디어를 붙여 요청합니다.
+- `Claude`: `SKILL.md`를 owner surface로 두고, 필요한 child skill과 command 문서를 같이 읽히면 됩니다.
+- `Claude Code`: skills-compatible 경로에 이 폴더를 두거나 현재 작업 폴더에서 `SKILL.md`와 `skills/`를 직접 읽게 합니다.
+- 일반 LLM 채팅: 스킬 자동 활성화가 없으면 `commands/urban/*.md`의 prompt와 `SKILL.md`의 기준 섹션을 그대로 복사해도 됩니다.
 
 ## 배포 기준
 
 - 별도 웹 서버나 빌드 과정이 필요 없습니다.
-- 학생에게 전달할 최소 묶음은 `student-guide.md`, `SKILL.md`입니다.
+- 학생에게 전달할 최소 묶음은 `student-guide.md`, `SKILL.md`, `commands/urban/`, `skills/`입니다.
+- 분리 스킬 구조를 설명해야 하면 `references/routing-contract.md`와 `references/command-skill-concept-map.md`를 같이 둡니다.
 - 지속가능한 Urban테크 수업 맥락을 함께 전달하려면 `domain-alignment-map.md`까지 같이 두는 편이 좋습니다.
 - 멀티 스킬 운영까지 전달하려면 `multi-skill-system.md`를 함께 둡니다.
 - `pretotyping-guide.md`는 역사적 참고 문서이며, 현재 실행 기준은 아닙니다.
