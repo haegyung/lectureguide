@@ -1,6 +1,6 @@
 # Manifest
 
-- build_date: 2026-05-22
+- build_date: 2026-05-26
 - package_type: plain Markdown distribution
 - publishable_sot_path: `dist/urban-prototyping-coach/`
 - source_documents:
@@ -44,6 +44,7 @@
 - `references/command-skill-concept-map.md`는 owner skill, child skill, command surface 연결을 한 번에 보여 주는 정렬 표면입니다.
 - `domain-alignment-map.md`는 `generate-skill`, `vector-language-cognition`, `cogarch`의 기준이 이 패키지에 어떻게 들어왔는지 기록합니다.
 - `multi-skill-system.md`는 여러 기준을 쓰더라도 학생에게는 하나의 코칭 흐름으로 보이게 하는 방식을 설명합니다.
+- `README.md`는 한국어와 영어 사용 설명을 함께 제공하며, root README와 같은 명령 흐름을 가리킵니다.
 - ChatGPT, Claude, Claude Code는 같은 `SKILL.md`를 읽어 사용합니다. 일반 채팅 도구는 필요한 섹션을 붙여 넣어 사용할 수 있습니다.
 - 이 폴더는 그대로 배포할 수 있습니다.
 - 호환성 상태는 `SKILL.md`에 `shared-core only / no-delta`로 기록했습니다.
@@ -68,6 +69,7 @@
 - 2026-05-22 hardening verification: `audit_three_layer_separation.py .` reported smells 0
 - 2026-05-22 package completion: actual `commands/urban/` and `skills/urban-*` surfaces added, root guide path generalized from `.gemini/` to portable `commands/` + `skills/`
 - 2026-05-22 child skill verification: each `skills/urban-*` folder passes `skills-ref validate` and `quick_validate.py`
+- 2026-05-26 bilingual README verification: root README and package README include Korean/English usage sections and command names match `references/routing-contract.md`
 
 ## Validation Commands
 
@@ -89,3 +91,4 @@ find skills -mindepth 1 -maxdepth 1 -type d -exec sh -c 'skills-ref validate "$1
 - 2026-05-22: 학생이 읽는 표면에서 내부 운영 용어 노출을 줄이고, 같은 구조를 더 자연스러운 한국어 설명으로 정리했습니다.
 - 2026-05-22: `commands/urban/`, `skills/urban-*`, `references/routing-contract.md`를 추가해 문서에만 남아 있던 command/skill 구조를 실제 배포 파일로 복원했습니다.
 - 2026-05-22: `references/command-skill-concept-map.md`를 추가해 owner skill, child skill, command surface 정렬 증거를 패키지 안에 남겼습니다.
+- 2026-05-26: 루트 README와 패키지 README를 한국어/영어 병기 사용 설명서로 정리하고, 배포 ZIP과 checksum을 새 릴리즈 기준으로 갱신했습니다.

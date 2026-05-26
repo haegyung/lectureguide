@@ -1,47 +1,116 @@
-# How to build with LLM Markdown Kit
+# Urban Prototyping Coach / 도시 프로토타이핑 코치
 
-이 폴더는 수업 배포용 일반 Markdown 묶음입니다.
-현재 기준은 **지속가능한 Urban테크 문제를 작은 프로토타이핑 실험으로 다루는 동반 패키지**입니다.
+이 폴더는 수업 배포용 일반 Markdown 패키지입니다. 학생과 강사는 이 문서를 읽고, 필요한 프롬프트와 스킬 파일을 LLM 도구에 붙여 아이디어를 작은 실험으로 줄일 수 있습니다.
 
-## 구성
+This folder is a plain Markdown course package. Students and instructors can read the guide, then paste the relevant prompts and skill files into an LLM tool to turn an idea into a small experiment.
 
-- `student-guide.md`: 우리가 합의한 기준을 반영한 통합 학생용 문서입니다. 프로토타이핑을 상위 개념으로 두고, LLM 활용과 증거 수집, 설계 연결까지 한 흐름으로 설명합니다.
-- `pretotyping-guide.md`: 초기 원문을 참고용으로 보존한 문서입니다. 용어 비교나 수업 맥락 확인이 필요할 때 참고합니다.
-- `SKILL.md`: `student-guide.md`를 주 기준으로 삼고, 지속가능한 Urban테크 수업에 맞게 행위자와 증거를 보는 방식을 덧댄 동반 스킬 파일입니다.
-- `commands/urban/`: `/urban:*` 흐름을 그대로 복사해 쓸 수 있게 정리한 portable command prompt 묶음입니다.
-- `skills/`: `urban-scope`부터 `urban-context-audit`까지 실제 분리된 하위 스킬 세트입니다.
-- `references/routing-contract.md`: command 이름, 연결된 하위 스킬, 입력/출력 계약을 고정한 기준 문서입니다.
-- `references/command-skill-concept-map.md`: owner skill, child skill, command surface 연결을 한눈에 보는 정렬 문서입니다.
-- `domain-alignment-map.md`: 이 스킬이 어떤 기준 문서와 어떤 도메인 규칙을 받아들였는지 짧게 정리한 메모입니다.
-- `multi-skill-system.md`: 이 패키지 안에서 여러 보조 기준이 어떻게 함께 쓰이는지 정리한 운영 문서입니다.
+## 한국어 사용 설명
+
+### 핵심 목표
+
+큰 서비스를 한 번에 완성하는 것이 목표가 아닙니다. 먼저 확인할 질문을 정하고, 작은 프로토타입으로 실제 반응이나 관찰 기록을 남긴 뒤, 다음 설계 판단으로 이어 가는 것이 목표입니다.
+
+### 처음 쓰는 순서
+
+1. `student-guide.md`를 읽고 아이디어를 `상황 -> 작은 실험 -> 증거 -> 다음 설계` 흐름으로 봅니다.
+2. `SKILL.md`를 LLM 도구에 넣어 이 패키지의 코칭 기준을 알려 줍니다.
+3. `commands/urban/help.md`를 먼저 넣어 현재 단계에 맞는 명령을 고릅니다.
+4. 필요한 경우 `references/routing-contract.md`에서 명령과 하위 스킬 연결을 확인합니다.
+5. 현재 단계와 맞는 `skills/urban-*/SKILL.md`를 추가해 더 좁은 작업으로 진행합니다.
+6. 결과를 발표 문장으로 끝내지 말고, 클릭, 신청, 질문, 재사용, 관찰 메모 같은 증거로 다시 확인합니다.
+
+### 명령별 사용법
+
+| 명령 | 사용 장면 | 함께 보면 좋은 파일 |
+| --- | --- | --- |
+| `/urban:help` | 어떤 단계인지 모르겠을 때 | `commands/urban/help.md`, `SKILL.md` |
+| `/urban:scope` | 문제를 작게 줄이고 싶을 때 | `commands/urban/scope.md`, `skills/urban-scope/SKILL.md` |
+| `/urban:service-loop` | 서비스 흐름을 정리할 때 | `commands/urban/service-loop.md`, `skills/urban-service-loop/SKILL.md` |
+| `/urban:prototype` | 작은 실험물을 정할 때 | `commands/urban/prototype.md`, `skills/urban-prototype/SKILL.md` |
+| `/urban:demo-review` | 시연을 점검할 때 | `commands/urban/demo-review.md`, `skills/urban-demo-review/SKILL.md` |
+| `/urban:pitch` | 발표 문장을 만들 때 | `commands/urban/pitch.md`, `skills/urban-pitch/SKILL.md` |
+| `/urban:spec` | 구현 범위를 정할 때 | `commands/urban/spec.md`, `skills/urban-spec/SKILL.md` |
+| `/urban:plan` | 하루 단위 계획을 잡을 때 | `commands/urban/plan.md`, `skills/urban-plan/SKILL.md` |
+| `/urban:context-audit` | 프로젝트 폴더와 설명이 흩어졌을 때 | `commands/urban/context-audit.md`, `skills/urban-context-audit/SKILL.md` |
+
+`skills/urban-evidence-boundary/SKILL.md`는 직접 명령이 아니라 보조 기준입니다. 관찰보다 해석이 커지거나, 아직 약한 증거로 발표 문장이 앞서 나갈 때 함께 씁니다.
+
+### 도구별 사용
+
+- ChatGPT: `SKILL.md`, 필요한 `commands/urban/*.md`, 필요한 `skills/urban-*/SKILL.md`를 함께 넣고 현재 아이디어를 붙입니다.
+- Claude: `SKILL.md`를 먼저 넣고, 현재 단계에 맞는 command와 child skill을 이어서 넣습니다.
+- Claude Code 또는 로컬 에이전트: 이 폴더를 작업 경로에 두고 `SKILL.md`, `commands/urban/`, `skills/`를 읽게 합니다.
+- 일반 LLM 채팅: 스킬 자동 활성화가 없으면 command 파일의 본문을 복사해 쓰면 됩니다.
+
+### 파일 구성
+
+- `student-guide.md`: 현재 학생용 기준 문서입니다.
+- `pretotyping-guide.md`: 초기 원문을 참고용으로 보존한 문서입니다.
+- `SKILL.md`: 이 패키지의 대표 코칭 스킬입니다.
+- `commands/urban/`: 복사 가능한 명령 프롬프트 묶음입니다.
+- `skills/`: 단계별 하위 스킬 세트입니다.
+- `references/routing-contract.md`: 명령 이름, 하위 스킬, 입력/출력 계약을 고정한 기준 문서입니다.
+- `references/command-skill-concept-map.md`: 대표 스킬, 하위 스킬, 명령 연결을 한눈에 보는 문서입니다.
+- `domain-alignment-map.md`: 이 패키지가 어떤 기준과 도메인 규칙을 받아들였는지 정리한 문서입니다.
+- `multi-skill-system.md`: 여러 스킬을 하나의 코칭 흐름으로 쓰는 방법입니다.
 - `MANIFEST.md`: 배포 파일 목록과 검증 기록입니다.
 
-## 사용 순서
+## English User Guide
 
-1. 먼저 `student-guide.md`를 읽고 아이디어를 질문, 프로토타입, 증거, 설계의 흐름으로 정리합니다.
-2. `SKILL.md`를 읽고 `행위자 + 상황 + 장소 + 마찰`과 `evidence_state + claim_boundary` 기준을 현재 아이디어에 붙입니다.
-3. `commands/urban/help.md`와 `references/routing-contract.md`를 보고 어떤 command와 하위 스킬을 쓸지 고릅니다.
-4. `references/command-skill-concept-map.md`를 보고 owner, child skill, helper의 연결을 먼저 파악합니다.
-5. `skills/` 아래에서 현재 단계와 맞는 하위 스킬을 선택해 더 좁은 작업 단위로 진행합니다.
-6. `multi-skill-system.md`를 읽고 owner, child skill, external helper의 역할 구분을 확인합니다.
-7. 필요할 때 `domain-alignment-map.md`를 확인해 왜 이런 구조를 쓰는지 빠르게 복기합니다.
-8. 문서 안의 프롬프트 예시를 자기 아이디어에 맞게 바꿔 씁니다.
-9. 필요할 때 `pretotyping-guide.md`를 참고해 원문 표현이나 초기 수업 맥락을 비교합니다.
-10. 스킬 파일을 지원하지 않는 도구에서는 `SKILL.md`나 `commands/urban/*.md`의 본문을 그대로 붙여 넣어도 됩니다.
+### Core Goal
 
-## 어떤 도구에서 쓰나
+The goal is not to build a full service at once. The goal is to choose a question, test it with a small prototype, capture user reactions or observation notes, and use that evidence for the next design decision.
 
-- `ChatGPT`: `SKILL.md`, 필요한 `skills/urban-*`, 필요한 `commands/urban/*.md`를 함께 읽히고 현재 아이디어를 붙여 요청합니다.
-- `Claude`: `SKILL.md`를 owner surface로 두고, 필요한 child skill과 command 문서를 같이 읽히면 됩니다.
-- `Claude Code`: skills-compatible 경로에 이 폴더를 두거나 현재 작업 폴더에서 `SKILL.md`와 `skills/`를 직접 읽게 합니다.
-- 일반 LLM 채팅: 스킬 자동 활성화가 없으면 `commands/urban/*.md`의 prompt와 `SKILL.md`의 기준 섹션을 그대로 복사해도 됩니다.
+### First Use Flow
 
-## 배포 기준
+1. Read `student-guide.md` and frame your idea as `situation -> small experiment -> evidence -> next design`.
+2. Add `SKILL.md` to your LLM tool so it understands the coaching rules.
+3. Start with `commands/urban/help.md` to choose the right command for your current stage.
+4. If needed, check `references/routing-contract.md` to see how commands and child skills connect.
+5. Add the matching `skills/urban-*/SKILL.md` file for a narrower task.
+6. Do not stop at a polished explanation. Check the result against evidence such as clicks, sign-ups, questions, reuse, or observation notes.
 
+### Command Guide
+
+| Command | Use it when | Helpful files |
+| --- | --- | --- |
+| `/urban:help` | You are unsure where to start | `commands/urban/help.md`, `SKILL.md` |
+| `/urban:scope` | You need to narrow the problem | `commands/urban/scope.md`, `skills/urban-scope/SKILL.md` |
+| `/urban:service-loop` | You need to clarify the service flow | `commands/urban/service-loop.md`, `skills/urban-service-loop/SKILL.md` |
+| `/urban:prototype` | You need a small experiment artifact | `commands/urban/prototype.md`, `skills/urban-prototype/SKILL.md` |
+| `/urban:demo-review` | You need to review a demo | `commands/urban/demo-review.md`, `skills/urban-demo-review/SKILL.md` |
+| `/urban:pitch` | You need to explain the work | `commands/urban/pitch.md`, `skills/urban-pitch/SKILL.md` |
+| `/urban:spec` | You need to define build scope | `commands/urban/spec.md`, `skills/urban-spec/SKILL.md` |
+| `/urban:plan` | You need a day-level plan | `commands/urban/plan.md`, `skills/urban-plan/SKILL.md` |
+| `/urban:context-audit` | Project context is scattered | `commands/urban/context-audit.md`, `skills/urban-context-audit/SKILL.md` |
+
+`skills/urban-evidence-boundary/SKILL.md` is a helper, not a direct command. Use it when interpretation is running ahead of observation, or when a pitch claim is stronger than the current evidence.
+
+### Tool Use
+
+- ChatGPT: provide `SKILL.md`, the relevant `commands/urban/*.md`, the relevant `skills/urban-*/SKILL.md`, and your current idea.
+- Claude: provide `SKILL.md` first, then the command and child skill for the current stage.
+- Claude Code or local agents: put this folder in the workspace and let the tool read `SKILL.md`, `commands/urban/`, and `skills/`.
+- Generic LLM chat: if skill activation is not supported, copy the relevant command file into the chat.
+
+### File Map
+
+- `student-guide.md`: current student-facing guide.
+- `pretotyping-guide.md`: preserved early reference document.
+- `SKILL.md`: representative coaching skill.
+- `commands/urban/`: portable command prompts.
+- `skills/`: step-specific child skills.
+- `references/routing-contract.md`: canonical command, child skill, input, and output contract.
+- `references/command-skill-concept-map.md`: map of representative skill, child skills, and command prompts.
+- `domain-alignment-map.md`: source and domain alignment notes.
+- `multi-skill-system.md`: how multiple skills work as one coaching flow.
+- `MANIFEST.md`: package inventory and verification log.
+
+## Distribution / 배포
+
+- No web server or build step is required.
 - 별도 웹 서버나 빌드 과정이 필요 없습니다.
-- 학생에게 전달할 최소 묶음은 `student-guide.md`, `SKILL.md`, `commands/urban/`, `skills/`입니다.
-- 분리 스킬 구조를 설명해야 하면 `references/routing-contract.md`와 `references/command-skill-concept-map.md`를 같이 둡니다.
-- 지속가능한 Urban테크 수업 맥락을 함께 전달하려면 `domain-alignment-map.md`까지 같이 두는 편이 좋습니다.
-- 멀티 스킬 운영까지 전달하려면 `multi-skill-system.md`를 함께 둡니다.
-- `pretotyping-guide.md`는 역사적 참고 문서이며, 현재 실행 기준은 아닙니다.
-- 프롬프트 예시는 `SKILL.md`에 중복하지 않고 학생용 문서 안에만 둡니다.
+- Minimum teaching bundle: `student-guide.md`, `SKILL.md`, `commands/urban/`, and `skills/`.
+- 최소 수업 묶음: `student-guide.md`, `SKILL.md`, `commands/urban/`, `skills/`.
+- Use `MANIFEST.md` when you need the package inventory or verification history.
+- 배포 파일 목록과 검증 기록은 `MANIFEST.md`에서 확인합니다.
